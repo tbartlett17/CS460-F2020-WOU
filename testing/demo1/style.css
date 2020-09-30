@@ -1,0 +1,29 @@
+body{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:darkgreen;
+    text-align: center;
+    border-bottom: 5px solid #223322;
+}
+
+h2,h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(197, 89, 200);
+}
+
+.highlight{
+    color: red;
+}
+
+p {
+    border: 1px;
+    
+}
+
+.contents {
+    margin-left: 2em;
+}

@@ -1,1 +1,13 @@
 
+body{
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: gray;
+    color: white;
+}
+
+div.col-sm {
+    border-style: solid;
+    padding: 10%;
+    margin: 0.5%;
+}

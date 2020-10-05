@@ -11,3 +11,28 @@ div.col-sm {
     padding: 10%;
     margin: 0.5%;
 }
+
+h1.headStyle1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-style: italic;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+}
+
+h2.headStyle2 {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-bottom: 2px solid #223322;
+
+}
+
+div.row {
+    text-align: center;
+    align-items: center;
+}
+
+p.parStyle1 {
+    color:black;
+    font-style: oblique;
+}

@@ -76,10 +76,15 @@ function handleFileSelect(evt) {
         //cell1.onclick = "dequeue(this)";
         cell2.innerHTML = f.name;
 
-        var btn = document.createElement('button');
-            btn.innerHTML = 'x';
-            btn.setAttribute('onclick', 'dequeue(this.parentNode.parentNode)');
-        cell3.appendChild(btn);
+        //var playbtn = document.createElement('button');
+        //    playbtn.innerHTML = 'play';
+        //    playbtn.setAttribute('onclick', 'playMedia(string)');
+        //cell1.appendChild(playbtn);
+
+        var delbtn = document.createElement('button');
+            delbtn.innerHTML = 'x';
+            delbtn.setAttribute('onclick', 'dequeue(this.parentNode.parentNode)');
+        cell3.appendChild(delbtn);
 
     }
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
@@ -92,4 +97,10 @@ function handleFileSelect(evt) {
   {
     //alert("Row index is: " + x.rowIndex);
     document.getElementById("playlist").deleteRow(x.rowIndex);
+  }
+
+  function playMedia(str)
+  {
+    alert("thing:" + str);
+    document.getElementById("mpTitle")
   }

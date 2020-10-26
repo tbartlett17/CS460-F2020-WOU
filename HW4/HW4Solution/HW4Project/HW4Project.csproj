@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <None Remove="Views\Home\.Privacy.cshtml.~1444" />
+    <None Remove="Views\Home\.Privacy.cshtml.~19f1" />
+    <None Remove="Views\Home\.Privacy.cshtml.~78bf" />
   </ItemGroup>
 
 </Project>

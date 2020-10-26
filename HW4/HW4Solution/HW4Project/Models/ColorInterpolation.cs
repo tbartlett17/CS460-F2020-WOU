@@ -12,16 +12,16 @@ namespace HW4Project.Models
         public string FirstColor { get; set; }
 
         [Required]
-        public string SecondColor { get; set; }
+        public string LastColor { get; set; }
 
         [Required]
-        [Range(0,10)]
+        [Range(0,13)]
         public int? NumberOfColors { get; set; }
         public List<string> ColorList { get; set; }
 
         public override string ToString()
         {
-            return $"firstColor={FirstColor}, secondColor={SecondColor}, NumColors={NumberOfColors}"; ;
+            return $"firstColor={FirstColor}, LastColor={LastColor}, NumColors={NumberOfColors}"; ;
         }
     }
 }

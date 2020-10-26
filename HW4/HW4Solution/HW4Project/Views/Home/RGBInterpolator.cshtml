@@ -1,6 +1,40 @@
 ﻿@{
     ViewData["Title"] = "RGB Interpolation";
-}
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+}
+@model ColorInterpolation
+
+
+<h1>@ViewData["Title"]</h1>
+<p> Enter two colors in HEX and a number of colors to interpolate that many between the first and second</p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <form asp-controller="home" asp-action="RGBInterpolator" method="post">
+                <div class="form-group">
+                    <label>First Color</label>
+                    <input asp-for="FirstColor" class="form-control" />
+                    <label>Second Color</label>
+                    <input asp-for="SecondColor" class="form-control" />
+                    <label>Number of Colors</label>
+                    <input asp-for="NumberOfColors" class="form-control" min="0" max="10" />
+                </div>
+                <div asp-validation-summary="All" />
+                <input type="submit" class=" btn btn-primary" value="Display" />
+            </form>
+
+        </div>
+        <div class="col-md">
+            <div>
+                @*@if (model is valid )
+                {
+                    //do stuff
+                }*@
+            </div>
+        </div>
+    </div>
+</div>
+
+

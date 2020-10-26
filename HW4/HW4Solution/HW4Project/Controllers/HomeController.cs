@@ -23,9 +23,29 @@ namespace HW4Project.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult RGBInterpolator()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult RGBInterpolator(ColorInterpolation c)
+        {
+            if (ModelState.IsValid)
+            {
+                Debug.WriteLine("model state valid");
+                Debug.WriteLine(c);
+                return View("RGBInterpolator", c);
+            }
+            else
+            {
+                Debug.WriteLine("model state NOT valid");
+                return View("RGBInterpolator", c);
+            }
+            
+            
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

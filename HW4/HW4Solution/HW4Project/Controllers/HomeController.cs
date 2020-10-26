@@ -23,9 +23,22 @@ namespace HW4Project.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult RGBColor(int? red, int? green, int? blue)
         {
-            return View();
+            Debug.WriteLine("inside RGBColor action method");
+
+            RGBColorModel myColor = new RGBColorModel();
+            if (red != null && green !=null && blue != null)
+            {
+                Debug.WriteLine("RGB = " + red + ", " + green + ", " + blue);
+               
+                myColor.Red = red;
+                myColor.Green = green;
+                myColor.Blue = blue;
+            }
+
+            return View("RGBColor", myColor);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

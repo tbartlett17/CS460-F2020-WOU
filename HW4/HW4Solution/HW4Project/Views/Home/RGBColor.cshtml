@@ -1,0 +1,55 @@
+﻿@*https://stackoverflow.com/questions/13354892/converting-from-rgb-ints-to-hex for the rgb to hex converter*@
+
+@{
+    ViewData["Title"] = "RGB Color";
+}
+
+@model RGBColorModel
+
+<h1>@ViewData["Title"]</h1>
+<p>Enter an RGB color to see ehat it looks like.</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <form asp-controller="home" asp-action="RGBColor" method="get">
+                <div class="form-group">
+                    <label>Red</label>
+                    <input type="number" name="red" class="form-control" min="0" max="255" />
+                    <label>Green</label>
+                    <input type="number" name="green" class="form-control" min="0" max="255" />
+                    <label>Blue</label>
+                    <input type="number" name="blue" class="form-control" min="0" max="255" />
+                </div>
+                <input type="submit" class=" btn btn-primary" value="Display" />
+            </form>
+
+        </div>
+        <div class="col-md">
+            <div>
+                @if (Model.Red != null && Model.Green != null && Model.Blue != null)
+                {
+                    System.Drawing.Color myColor = System.Drawing.Color.FromArgb((int)Model.Red, (int)Model.Green, (int)Model.Blue);
+                    string myColorHex = "#" + myColor.R.ToString("X2") + myColor.G.ToString("X2") + myColor.B.ToString("X2");
+                    
+                    <br />
+                    <div style="background-color:@myColorHex; height:200px; width:200px">
+
+                    </div>
+
+                    <p style="color:gray">HEX: @myColorHex,  RGB: @Model.Red,@Model.Green,@Model.Blue</p>
+                }
+                else
+                {
+                    <br />
+                    <div style="background-color:black; height:200px; width:200px">
+
+                    </div>
+
+                    <p style="color:gray">HEX: #000000, RGB: 0,0,0</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -3,6 +3,20 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">CS460 Hw4 Website!!!</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>RGB Color</h3>
+            <p>A cool color chooser, enter three numbers for RGB values and see what it looks like!</p>
+            <input type="button" class="btn btn-primary" value="Try it now >" onclick="window.location='@Url.Action("RGBColor", "Home")'" />
+        </div>
+        <div class="col-sm">
+            <h3>RGB Interpolator</h3>
+            <p>A cool color interpolator, enter two hex values for colors and watch the crazy magic happen!</p>
+            <input type="button" class="btn btn-primary" value="Ouch my brain >" onclick="window.location='@Url.Action("RGBInterpolator", "Home")'" />
+        </div>
+    </div>
 </div>

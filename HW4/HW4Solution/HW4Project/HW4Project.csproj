@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Home\.Privacy.cshtml.~19f1" />
+  </ItemGroup>
+
 </Project>

@@ -23,7 +23,7 @@ namespace HW4Project.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult RGBInterpolator()
         {
             return View();
         }

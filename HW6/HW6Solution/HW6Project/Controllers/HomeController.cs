@@ -11,17 +11,26 @@ namespace HW6Project.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private HW6DBContext db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(HW6DBContext db)
         {
-            _logger = logger;
+            this.db = db;
+        }
+      
+
+        public IActionResult Index(string q)
+        {
+            Debug.WriteLine("inside /Search/Artist action method");
+
+
+
+            // if (input.isNullorEmpty) {}
+
+            return View(db.Artists.Where(a => a.Name.Contains(q)));
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
 
         public IActionResult Privacy()
         {

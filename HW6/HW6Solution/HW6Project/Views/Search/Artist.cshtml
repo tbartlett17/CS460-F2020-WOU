@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Artist Details";
+}
+@model Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable<Artist>
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Chinnok Artist Page</h1>
+    <p>@Model.FirstOrDefault().ArtistId, @Model.FirstOrDefault().Name</p> @* <--- THIS WORKS, GOAL ACHIEVED TAKE A BREAK NOW*@
+</div>

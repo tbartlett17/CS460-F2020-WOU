@@ -1,8 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model IEnumerable<Artist>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Chinnok Digital Media</h1>
+    <p>Search for an artist below!</p>
 </div>
+<div class="container-fluid">
+    <form asp-controller="home" asp-action="index" method="get">
+        <div class="form-row justify-content-center">
+            <input type="text" name="q" class="form-control mr-sm-2 w-50" placeholder="Search" />
+            <input type="submit" class=" btn btn-primary" value="Search" />
+        </div>
+    </form>
+    @if (Model != null)
+    {
+        <div>
+            <table>
+                <thead>
+                    <tr><th></th></tr>
+                </thead>
+                <tbody>
+                    @foreach (Artist a in Model)
+                    {
+                        <tr>
+                            <td><a href="/Search/Artist/@a.ArtistId">@a.Name</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+

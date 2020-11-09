@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Artist Details";
+}
+@model Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryable<Artist>
+
+<div class="container">
+    <div class="row">
+        <img src="https://via.placeholder.com/150" alt="Picture of Band/Artist">
+        <h1 class="display-4">@Model.FirstOrDefault().Name</h1>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        @if (Model.FirstOrDefault().Albums.Count == 0)
+        {
+            <p>This artist has no albums</p>
+        }
+        else
+        {
+            foreach (Album a in Model.FirstOrDefault().Albums)
+            {
+                @*<p>album name: @a.Title</p>  <---- IT WORKS. put into a div class=col for each album *@
+
+                <div class="col card" style="border: 5px solid transparent">
+                    <h5 class="display-5">@a.Title</h5>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Track</th>
+                                <th>Duration</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(Track t in a.Tracks)
+                            {
+                                <tr>
+                                    <td>@t.Name</td>
+                                    <td>@string.Format("{0:D2}:{1:D2}", TimeSpan.FromMilliseconds(t.Milliseconds).Minutes, TimeSpan.FromMilliseconds(t.Milliseconds).Seconds)</td>
+                                    <td>@t.UnitPrice</td>
+                                    
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -27,7 +27,7 @@ namespace HW6Project.Controllers
         {
             Debug.WriteLine("inside /Search/Artist action method");
 
-            return View(db.Artists.Include(a => a.Albums).ThenInclude(t => t.Tracks).Where(a => a.ArtistId == 51));
+            return View(db.Artists.Include(a => a.Albums).ThenInclude(t => t.Tracks).Where(a => a.ArtistId == id));
         }
 
         

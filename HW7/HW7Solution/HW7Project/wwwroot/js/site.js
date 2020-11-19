@@ -4,8 +4,13 @@
 // Write your JavaScript code.
 
 
-$("#request").click(function () {
-    let address = "/api/commits?user=" + $("#user") + "&repo=" + $("#repo");
+$("input").click(function (e) {
+    var idClicked = e.target.id;
+    //console.log(idClicked);
+
+    let address = "/api/commits?" + idClicked;
+    console.log(address);
+
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -15,6 +20,8 @@ $("#request").click(function () {
     });
 });
 
+
+/*
 funtion errorOnAjax() {
     console.log("ERROR in ajax request");
 }
@@ -22,3 +29,4 @@ funtion errorOnAjax() {
 funtion displayCommmits(commitsReq) {
     console.log(commitsReq);
 }
+*/

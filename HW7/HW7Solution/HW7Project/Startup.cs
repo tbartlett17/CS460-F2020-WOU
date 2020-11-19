@@ -45,6 +45,11 @@ namespace HW7Project
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "GitHub Commits",
+                    pattern: "api/commits",
+                    defaults: new {Controller = "Home", action = "Commits"});
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

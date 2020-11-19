@@ -1,8 +1,38 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model GitHubUser
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container" style="padding-top:50px">
+    <div class="row" style="background-color:rgb(55,55,55);">
+        <img src="@Model.Avatar_url" alt="@Model.Name's Avatar" style="width:200px;height:200px;padding-right:20px">
+        <div class="small">
+            <h1 class="display-4" style="color:white;">  @Model.Name</h1>
+            <br />
+            <h5 style="color:white;font-size:15px;">@Model.Login</h5>
+            <h5 style="color:white;font-size:15px;">@Model.Email</h5>
+            <h5 style="color:white;font-size:15px;">@Model.Company</h5>
+            <h5 style="color:white;font-size:15px;">@Model.Location</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <h1 class="display-4">Repositories</h1>
+    </div>
+
+    @foreach (GitHubRepo r in Model.Repos)
+    {
+        <div class="mt-2 col-sm" style="background-color:maroon;padding:20px;">
+            <p id="repo" style="color:white">@r.Name</p>
+            <p id="user" style="color:white">@r.Owner.Login</p>
+            <p style="color:white">Last Updated: @r.Updated_at days ago</p>
+            <img src="@r.Owner.Avatar_url" alt="@r.Owner.Name's Avatar" style="width:70px;height:70px;padding-right:20px">
+            <button id="request" class="btn-primary" value="">view commits</button>
+        </div>
+    }
+
+    <div class="row">
+
+    </div>
+
 </div>

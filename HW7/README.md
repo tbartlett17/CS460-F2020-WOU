@@ -5,3 +5,5 @@ Some Sources for this assignment
     worked with Reggie J(Johnson?) on the last leg of getting ajax implemented
     https://stackoverflow.com/questions/33547578/deserializing-json-with-a-property-in-a-nested-object
     https://stackoverflow.com/questions/7919328/how-to-detect-which-button-is-clicked-using-jquery),
+    https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_table_createthead
+    https://www.geeksforgeeks.org/how-to-remove-all-rows-from-a-table-in-javascript/

@@ -20,13 +20,29 @@ $("input").click(function (e) {
     });
 });
 
-
-/*
-funtion errorOnAjax() {
+function errorOnAjax() {
     console.log("ERROR in ajax request");
+
 }
 
-funtion displayCommmits(commitsReq) {
-    console.log(commitsReq);
+function displayCommits(data) {
+    console.log(data);
+
+    var table = document.getElementById("commitsTable");
+
+    for (var i = 0, d; d = data[i]; i++) {
+
+        var row = table.insertRow(i + 1);
+        var cell1 = row.insertCell(); //SHA
+        var cell2 = row.insertCell(); //Timestamp
+        var cell3 = row.insertCell(); //Committer
+        var cell4 = row.insertCell(); //Commit Message
+
+        cell1.innerHTML = d.sha;
+        cell2.innerHTML = d.commit.author.date;
+        cell3.innerHTML = d.commit.author.name;
+        cell4.innerHTML = d.commit.message;
+    }
+
+
 }
-*/

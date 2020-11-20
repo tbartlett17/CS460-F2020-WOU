@@ -54,8 +54,13 @@ namespace HW7Project.Controllers
         {
             string secret = _config["GitHub:PersonalAccessToken"];
 
-            string commitsReq = SendRequest("https://api.github.com/repos/" + user + "/" + repo + "/commits", secret, "tbartlett17");
-            return Json(commitsReq);
+            string myGitJsonCommits = SendRequest("https://api.github.com/repos/" + user + "/" + repo + "/commits", secret, "tbartlett17");
+
+            IEnumerable<GitHubCommit> GitHubCommits = JsonConvert.DeserializeObject<IEnumerable<GitHubCommit>>(myGitJsonCommits);
+
+            string myCommits = "";
+
+            return Json(GitHubCommits);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

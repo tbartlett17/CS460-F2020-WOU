@@ -58,8 +58,6 @@ namespace HW7Project.Controllers
 
             IEnumerable<GitHubCommit> GitHubCommits = JsonConvert.DeserializeObject<IEnumerable<GitHubCommit>>(myGitJsonCommits);
 
-            string myCommits = "";
-
             return Json(GitHubCommits);
         }
 

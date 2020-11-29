@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [HomeworkAssignments]
 (
-    [ID]			INT PRIMARY KEY IDENTITY (1,1),
+    [ID]			INT                 PRIMARY KEY IDENTITY (1,1),
     [Priority]		NVARCHAR(6)			NOT NULL,
     [DueDate]	    DATE				NOT NULL,
     [TimeDue]		DATETIME            NOT NULL,

@@ -13,7 +13,8 @@ CREATE TABLE [Assignments]
   [course_id]       NVARCHAR(6)     NOT NULL,
   [title]           NVARCHAR(50)    NOT NULL,
   [keywords]        NVARCHAR(max)   ,
-  [notes]           NVARCHAR(max)   
+  [notes]           NVARCHAR(max)   ,
+  [completed]		TINYINT			DEFAULT 1	
 )
 
 CREATE TABLE [Keywords] 

@@ -1,0 +1,65 @@
+﻿@{
+    ViewData["Title"] = "Add Assignments Page";
+}
+@model AddAssignmentPageViewModel
+
+<div class="text-center">
+    <h1 class="display-4">New Assignment: </h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="AddAssignmentPage" method="post" class="m-2">
+                <div asp-validation-summary="All"></div>
+                <div class="form-group">
+                    <label>Priority:</label>
+                    <select asp-for="Priority" class="form-control">
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    <div class="form-group">
+                        <label asp-for="DueDate">Due Date:</label>
+                        <input asp-for="DueDate" class="form-control" type="date" value="@DateTime.Now"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Course ID:</label>
+                        <select asp-for="CourseId" class="form-control">
+                            <option value="" disabled selected>Choose an option</option>
+                            @foreach (Course c in Model.CourseList)
+                            {
+                                if (c.CourseId != "")
+                                {
+                                    <option value="@c.CourseId">@c.CourseId</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title">Title:</label>
+                        <input asp-for="Title" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Keywords:</label>
+                        <input asp-for="Keywords" class="form-control"/> @**delete this for the selector when it works@
+                        @*<select asp-for="Keywords" class="form-control">
+                            <option value="">Choose an option</option>
+                            @foreach (Keyword in a list of keywords)
+                            {
+                                <option value="@something.keyword">
+                            }
+                        </select>*@
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Notes">Notes:</label>
+                        <input asp-for="Notes" class="form-control" style="overflow:auto;"/>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -6,14 +6,16 @@ $("input").click(function (e) {
     var idClicked = e.target.id;
     console.log(idClicked);
 
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        data: "{ 'AssignmentId': '" + idClicked + "' }",
-        url: "/Home/CompleteAssignment",
-        success: updateTable,
-        error: errorOnAjax
-    });
+    if (idClicked) {
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            data: "{ 'AssignmentId': '" + idClicked + "' }",
+            url: "/Home/CompleteAssignment",
+            success: updateTable,
+            error: errorOnAjax
+        });
+    }
 });
 
 

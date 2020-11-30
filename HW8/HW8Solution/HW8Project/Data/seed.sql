@@ -17,6 +17,6 @@ INSERT INTO [Keywords] (title) VALUES
     ('azure')
 
 INSERT INTO [Assignments] (priority, due_date, course_id, title, keywords, notes) VALUES
-    ('High', '2020-11-29', 'CS460', 'HW8 Assignment', '5,7', 'hw9 utilizes this'),
-    ('Medium', '2020-12-04', 'CS460', 'HW9 Assignment', '10', ''),
+    ('High', '2020-11-29', 'CS460', 'HW8 Assignment', '', 'hw9 utilizes this'),
+    ('Medium', '2020-12-04', 'CS460', 'HW9 Assignment', '', ''),
     ('Low', '2020-12-01', 'LIT102', 'Book Report', '', '')

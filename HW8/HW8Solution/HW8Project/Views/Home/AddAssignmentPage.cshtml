@@ -47,7 +47,7 @@
                         {
                             <div style="margin:2px; background-color:cornflowerblue;">
                                 <label asp-for="Keywords">@k.Title</label>
-                                <input type="checkbox" value="@k.Title" />
+                                <input type="checkbox" value="@k.Title" name="tag" />
                             </div>
 
                         }
@@ -57,7 +57,7 @@
                         <input asp-for="Notes" class="form-control" style="overflow:auto;"/>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="newAssSubBtn">Submit</button>
                 </div>
             </form>
         </div>

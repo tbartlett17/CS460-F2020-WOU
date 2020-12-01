@@ -24,7 +24,7 @@ namespace HW8Project.Models
         [StringLength(50)]
         public string Title { get; set; }
         [Column("keywords")]
-        public string Keywords { get; set; }
+        public IEnumerable<string> Keywords { get; set; }
         [Column("notes")]
         public string Notes { get; set; }
         [Column("completed")]

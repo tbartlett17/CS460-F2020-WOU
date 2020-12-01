@@ -86,6 +86,8 @@ namespace HW8Project.Controllers
                     Title = vm.Title,
                     Notes = vm.Notes
                 };
+                
+               
 
                 db.Assignments.Add(assignment);
                 db.SaveChanges();
@@ -113,12 +115,13 @@ namespace HW8Project.Controllers
         }
 
 
-        public IActionResult CompleteAssignment(string data)
+        public IActionResult CompleteAssignment(string assignmentId)
         {
-            
-            Debug.WriteLine("\n\n**********\n" + data + "\n**********\n\n");
-
-            return Json(true);
+            //Debug.WriteLine("\n\n**********\n" + db.Assignments.First(a => a.Id == Convert.ToInt32(assignmentId)).Completed + "\n**********\n\n");
+            //db.Assignments.Find(a => a.Id == Convert.ToInt32(assignmentId));
+            db.Assignments.First(a => a.Id == Convert.ToInt32(assignmentId)).Completed = 0;
+            db.SaveChanges();
+            return Json(assignmentId);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

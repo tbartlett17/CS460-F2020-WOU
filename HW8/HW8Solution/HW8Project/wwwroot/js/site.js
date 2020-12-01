@@ -45,7 +45,7 @@ $("#newAssSubBtn").click(function (e) {
         tagList.push(this.value);
     });
     //console.log(tagList);
-    //alert(tagList)
+    alert(tagList);
 
     $.ajax({
         type: "POST",

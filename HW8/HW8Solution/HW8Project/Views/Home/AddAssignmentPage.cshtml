@@ -43,11 +43,11 @@
                     </div>
                     <div class="row form-group">
                         <p>Keywords:</p>
-                        @foreach (Keyword k in Model.KeywordList)
+                        @foreach (Keyword k in Model.AvailableKeywords)
                         {
                             <div style="margin:2px; background-color:cornflowerblue;">
-                                <label asp-for="Keywords">@k.Title</label>
-                                <input type="checkbox" value="@k.Title" name="tag" />
+                                <label asp-for="SelectedKeywords">@k.Title</label>
+                                <input type="checkbox" value="@k.Title" name="SelectedKeywords" />
                             </div>
 
                         }

@@ -23,8 +23,9 @@ namespace HW8Project.Models
         [Column("title")]
         [StringLength(50)]
         public string Title { get; set; }
-        [Column("keywords")]
-        public IEnumerable<string> Keywords { get; set; }
+
+
+
         [Column("notes")]
         public string Notes { get; set; }
         [Column("completed")]
@@ -35,8 +36,10 @@ namespace HW8Project.Models
         public virtual Course Course { get; set; }
 
         public IEnumerable<Course> CourseList { get; set; }
-        public IEnumerable<Keyword> KeywordList { get; set; }
+        public IEnumerable<Keyword> AvailableKeywords { get; set; }
 
-
+        public IEnumerable<Keyword> SelectedKeywords { get; set; }
     }
 }
+
+

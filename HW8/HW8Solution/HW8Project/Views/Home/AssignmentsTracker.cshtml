@@ -8,7 +8,9 @@
 </div>
 
 <div class="col">
-    <div class="row">
+    <div class="row" style="margin:2px;">
+        <input  class="btn btn-primary" type="button" value="filter by Priority" onclick="window.location='@Url.Action("SortByPriority", "Home")'" />
+        <input class="btn btn-primary" type="button" value="filter by date" onclick="window.location='@Url.Action("SortByDate", "Home")'" />
     </div>
     <div class="row">
         <table class="table table-bordered table-striped table-sm" id="assignmentsTable">

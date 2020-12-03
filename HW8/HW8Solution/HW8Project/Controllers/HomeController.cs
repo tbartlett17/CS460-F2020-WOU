@@ -68,7 +68,7 @@ namespace HW8Project.Controllers
             AddAssignmentPageViewModel myModel = new AddAssignmentPageViewModel
             {
                 CourseList = db.Courses,
-                KeywordList = db.Keywords
+                AvailableKeywords = db.Keywords
             };
             return View(myModel);
         }
@@ -86,7 +86,7 @@ namespace HW8Project.Controllers
                     Title = vm.Title,
                     Notes = vm.Notes
                 };
-                
+                //Debug.WriteLine(vm.Keywords);
                
 
                 db.Assignments.Add(assignment);
@@ -95,8 +95,18 @@ namespace HW8Project.Controllers
             }
             else
             {
-                return View();
+                return View("AssignmentsTracker", db.Assignments.Where(a => a.Completed == 1).OrderByDescending(a => a.DueDate));
             }
+        }
+
+        public IActionResult SortByPriority()
+        {
+            return View("AssignmentsTracker", db.Assignments.Where(a => a.Completed == 1).OrderBy(a => a.Priority == "HIGH" ? 1 : a.Priority == "MEDIUM" ? 2 : 3));
+        }
+
+        public IActionResult SortByDate()
+        {
+            return View("AssignmentsTracker", db.Assignments.Where(a => a.Completed == 1).OrderByDescending(a => a.DueDate));
         }
 
         [HttpGet]

@@ -9,11 +9,10 @@
 
 <div class="col">
     <div class="row">
-        <input class="btn btn-primary" type="button" value="filter by Priority" />
-        <input class="btn btn-primary" type="button" value="filter by date" />
+     
     </div>
     <div class="row">
-        <table class="table table-bordered table-striped table-sm">
+        <table class="table table-bordered table-striped table-sm" id="assignmentsTable">
             <thead>
                 <tr>
                     <th>Mark Complete</th>
@@ -30,11 +29,11 @@
                 {
                     <tr>
                         <td>
-                            <input type="checkbox" />
+                            <input type="checkbox" id="chbx_@a.Id"/>
                         </td>
                         <td>@a.Priority</td>
                         <td>@a.DueDate.ToShortDateString()</td>
-                        <td>@a.CourseId">@a.CourseId</td>
+                        <td>@a.CourseId</td>
                         <td>@a.Title</td>
                         <td>@a.Keywords</td>
                         <td>@a.Notes</td>

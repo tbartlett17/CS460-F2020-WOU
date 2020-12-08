@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Assignments Tracker";
+}
+@model IEnumerable<Assignment>
+
+<div class="text-center">
+    <h1 class="display-4">All Assignments: </h1>
+</div>
+
+<div class="col">
+    <div class="row" style="margin:2px;">
+        <input  class="btn btn-primary" type="button" value="filter by Priority" onclick="window.location='@Url.Action("SortByPriority", "Home")'" />
+        <input class="btn btn-primary" type="button" value="filter by date" onclick="window.location='@Url.Action("SortByDate", "Home")'" />
+    </div>
+    <div class="row">
+        <table class="table table-bordered table-striped table-sm" id="assignmentsTable">
+            <thead>
+                <tr>
+                    <th>Mark Complete</th>
+                    <th>Priority</th>
+                    <th>Due Date</th>
+                    <th>Course</th>
+                    <th>Assignment</th>
+                    <th>Keywords</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Assignment a in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="chbx_@a.Id"/>
+                        </td>
+                        <td>@a.Priority</td>
+                        <td>@a.DueDate.ToShortDateString()</td>
+                        <td><a href="/Home/CourseAssignments/@a.CourseId">@a.CourseId</a></td>
+                        <td>@a.Title</td>
+                        <td>@a.Keywords</td>
+                        <td>@a.Notes</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

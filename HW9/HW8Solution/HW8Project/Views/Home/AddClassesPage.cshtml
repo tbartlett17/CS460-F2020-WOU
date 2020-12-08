@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Add Classes Page";
+}
+@model AddClassesViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Add Classes: </h1>
+
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <p>enter all your classes seperated by commas (','): ex/ CS460, LIT102, MTH341,...</p>
+            <form asp-action="AddClassesPage" method="post" class="m-2">
+                <div asp-validation-summary="All"></div>
+                <div class="form-group">
+                    <input asp-for="Input" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -13,36 +13,26 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Season" class="control-label"></label>
-                <input asp-for="Season" class="form-control" />
-                <span asp-validation-for="Season" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" class="form-control" />
-                <span asp-validation-for="Year" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StartDate" class="control-label"></label>
-                <input asp-for="StartDate" class="form-control" />
+                <label asp-for="StartDate" class="control-label">Date Started</label>
+                <input asp-for="StartDate" class="form-control" placeholder="mm/dd/yyyy" />
                 <span asp-validation-for="StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TerminationReason" class="control-label"></label>
+                <label asp-for="TerminationReason" class="control-label">Why was the expedition terminated?</label>
                 <input asp-for="TerminationReason" class="form-control" />
                 <span asp-validation-for="TerminationReason" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="OxygenUsed" class="control-label"></label>
-                <input asp-for="OxygenUsed" class="form-control" />
+                <input type="checkbox" asp-for="OxygenUsed" class="form-control" />
                 <span asp-validation-for="OxygenUsed" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PeakId" class="control-label"></label>
+                <label asp-for="PeakId" class="control-label">Which peak was climbed or attempted?</label>
                 <select asp-for="PeakId" class ="form-control" asp-items="ViewBag.PeakId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="TrekkingAgencyId" class="control-label"></label>
+                <label asp-for="TrekkingAgencyId" class="control-label">Trekking Agency used</label>
                 <select asp-for="TrekkingAgencyId" class ="form-control" asp-items="ViewBag.TrekkingAgencyId"></select>
             </div>
             <div class="form-group">

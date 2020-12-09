@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Year)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+                @Html.DisplayNameFor(model => model.StartDate.Value)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TerminationReason)
@@ -58,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.Peak.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TrekkingAgency.Id)
+                @Html.DisplayFor(modelItem => item.TrekkingAgency.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

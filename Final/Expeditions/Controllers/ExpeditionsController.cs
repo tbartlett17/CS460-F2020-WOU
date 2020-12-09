@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Expeditions.Models;
+using System.Diagnostics;
 
 namespace Expeditions.Controllers
 {
@@ -21,7 +22,7 @@ namespace Expeditions.Controllers
         // GET: Expeditions
         public async Task<IActionResult> Index()
         {
-            var expeditionsDbContext = _context.Expeditions.Include(e => e.Peak).Include(e => e.TrekkingAgency);
+            var expeditionsDbContext = _context.Expeditions.Include(e => e.Peak).Include(e => e.TrekkingAgency).OrderByDescending(d => d.StartDate).Take(50);
             return View(await expeditionsDbContext.ToListAsync());
         }
 
@@ -48,8 +49,8 @@ namespace Expeditions.Controllers
         // GET: Expeditions/Create
         public IActionResult Create()
         {
-            ViewData["PeakId"] = new SelectList(_context.Peaks, "Id", "Name");
-            ViewData["TrekkingAgencyId"] = new SelectList(_context.TrekkingAgencies, "Id", "Id");
+            ViewData["PeakId"] = new SelectList(_context.Peaks.OrderBy(p => p.Name), "Id", "Name");
+            ViewData["TrekkingAgencyId"] = new SelectList(_context.TrekkingAgencies.OrderBy(ta => ta.Name), "Id", "Name");
             return View();
         }
 
@@ -58,16 +59,46 @@ namespace Expeditions.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Season,Year,StartDate,TerminationReason,OxygenUsed,PeakId,TrekkingAgencyId")] Expedition expedition)
+        public async Task<IActionResult> Create([Bind("Id,StartDate,TerminationReason,OxygenUsed,PeakId,TrekkingAgencyId")] Expedition expedition)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(expedition);
+                if (expedition.StartDate.Value.Month >= 3 && expedition.StartDate.Value.Month <= 5)
+                {
+                    expedition.Season = "Spring";
+                    expedition.Year = expedition.StartDate.Value.Year;
+                }
+                else if (expedition.StartDate.Value.Month >= 6 && expedition.StartDate.Value.Month <= 8)
+                {
+                    expedition.Season = "Summer";
+                    expedition.Year = expedition.StartDate.Value.Year;
+                }
+                else if (expedition.StartDate.Value.Month >= 9 && expedition.StartDate.Value.Month <= 11)
+                {
+                    expedition.Season = "Fall";
+                    expedition.Year = expedition.StartDate.Value.Year;
+                }
+                else if (expedition.StartDate.Value.Month == 12)
+                {
+                    expedition.Season = "Winter";
+                    expedition.Year = expedition.StartDate.Value.Year;
+                }
+                else if (expedition.StartDate.Value.Month == 1 || expedition.StartDate.Value.Month == 2)
+                {
+                    expedition.Season = "Winter";
+                    expedition.Year = expedition.StartDate.Value.Year - 1;
+                }
+                else
+                {
+                    Debug.WriteLine("SOMETHING SUPER WRONG HAPPENED");
+                }
+
+                    _context.Add(expedition);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["PeakId"] = new SelectList(_context.Peaks, "Id", "Name", expedition.PeakId);
-            ViewData["TrekkingAgencyId"] = new SelectList(_context.TrekkingAgencies, "Id", "Id", expedition.TrekkingAgencyId);
+            ViewData["TrekkingAgencyId"] = new SelectList(_context.TrekkingAgencies, "Id", "Name", expedition.TrekkingAgencyId);
             return View(expedition);
         }
 

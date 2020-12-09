@@ -7,5 +7,23 @@
 $(document).ready(function () { window.setInterval(execute, 5000) });
 
 function execute() {
-        console.log('Running execute function');
+    console.log('Running execute function');
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/Home/FetchStats",
+        success: updateStats,
+        error: errorOnAjax
+    });
+}
+
+function errorOnAjax() {
+    console.log("ERROR in ajax request");
+
+}
+
+function updateStats(stats) {
+
+    console.log(stats);
 }

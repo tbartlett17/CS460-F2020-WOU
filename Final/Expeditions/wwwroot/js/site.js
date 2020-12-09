@@ -26,4 +26,6 @@ function errorOnAjax() {
 function updateStats(stats) {
 
     console.log(stats);
+
+    $("#stats").text(stats);
 }
